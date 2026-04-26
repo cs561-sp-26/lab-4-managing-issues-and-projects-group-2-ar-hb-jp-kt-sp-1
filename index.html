@@ -110,6 +110,39 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <table id="roundsTable" class="table table-hover">
+          <caption id="roundsTableCaption" aria-live="polite">Rounds Table</caption>
+          <thead class="table-light">
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                aria-label="Sort ascending by date">
+                <span class="fas fa-sort sort-icon"></span>
+              </button>Date</th>
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                        aria-label="Sort ascending by course">
+                  <span class="fas fa-sort sort-icon"></span>
+                </button>Course</th>
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                        aria-label="Sort ascending by score">
+                  <span class="fas fa-sort sort-icon"></span>
+                </button>Score</th>
+            <th scope="col" class="cell-align-middle">View/Edit...</th>
+            <th scope="col" class="cell-align-middle">Delete</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td colspan="5" scope="rowgroup"><i>No rounds added yet</i></td>
+            </tr>
+          </tbody>
+        </table>
         <button id="roundsModeActionBtn"  type="button"
                 class="float-btn">
           <span class="fas fa-calendar-plus fa-fw" aria-hidden="true"></span>New Round
