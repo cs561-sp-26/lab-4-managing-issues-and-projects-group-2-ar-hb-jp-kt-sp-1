@@ -142,3 +142,158 @@
     //populateProfileSettingsForm();
     GlobalProfileEmailField.focus();
 });
+
+/*************************************************************************
+ * @function updateProfile
+ * @Desc 
+ * Given valid profile data in the form, update the current user's
+ * object in localStorage
+ * @global menuBtn: The menu button
+ * @global modeTabsContainer: The mode tabs
+ * @global modeTabPanels: array of tab panels 
+ * @global currentMode, index of current mode.
+ * @global profileSettingsDialog: The "Account and Profile Settings" 
+ *         dialog
+ *************************************************************************/
+ function updateProfile() {
+    let clubsInBag = {};
+    for (let i = 0; i < GlobalProfileClubsInBagChecks.length; ++i) {
+        if (GlobalProfileClubsInBagChecks[i].checked) {
+            clubsInBag[GlobalProfileClubsInBagChecks[i].name] = true;
+        }
+    }
+    const oldUserEmail = GlobalUserData.accountInfo.email;
+    GlobalUserData = {
+        accountInfo: {
+            email: GlobalProfileEmailField.value, 
+            password: GlobalProfilePasswordField.value,
+            securityQuestion: GlobalProfileSecurityQuestionField.value,
+            securityAnswer: GlobalProfileSecurityAnswerField.value
+        },
+        identityInfo: {
+            displayName: GlobalProfileDisplayNameField.value,
+            profilePic: GlobalProfilePicImage.getAttribute("src"),
+        },
+        speedgolfInfo: {
+            bio: GlobalProfileBioField.value,
+            firstRound: GlobalProfileFirstRoundField.value,
+            homeCourse: GlobalProfileHomeCourseField.value,
+            personalBest: {
+                strokes: GlobalProfileBestStrokesField.value,
+                minutes: GlobalProfileBestMinutesField.value, 
+                seconds: GlobalProfileBestSecondsField.value, 
+                course: GlobalProfileBestCourseField.value},
+            clubs: clubsInBag,
+            clubComments: GlobalProfileClubCommentsField.value
+        },
+        rounds: [...GlobalUserData.rounds],
+        roundCount: GlobalUserData.roundCount
+    };
+    //Save updated profile to localStorage as key-value pair
+    localStorage.setItem(GlobalUserData.accountInfo.email, 
+        JSON.stringify(GlobalUserData));
+    if (oldUserEmail !== GlobalUserData.accountInfo.email) {
+        //We need to remove old user record from localStorage
+        localStorage.removeItem(oldUserEmail);
+    }
+    //Reset form in case it is visited again
+    resetUpdateProfileForm();
+    //Transition back to previous mode page
+    GlobalProfileBtn.style.backgroundImage = "url(" + GlobalUserData.identityInfo.profilePic + ")";
+    transitionFromDialog(GlobalProfileSettingsDialog);
+}
+
+/*************************************************************************
+ * @function submit button CLICK Handler 
+ * @Desc 
+ * When the user clicks the form's "Update" (submit) button, we need to
+ * validate the form data. If it's valid, we update the current user's
+ * object in localStorage.
+ * @global GlobalMenuBtn: The menu button
+ * @global GlobalModeTabsContainer: The mode tabs
+ * @global GlobalModeTabPanels: array of tab panels 
+ * @global GlobalCurrentMode, index of current mode.
+ * @global GlobalProfileSettingsDialog: The "Account and Profile Settings" 
+ *         dialog
+ *************************************************************************/
+ editProfileForm.addEventListener("submit",function(e) {
+    e.preventDefault(); //Prevent default submit behavior
+    //Is the email field valid?
+    let emailValid = !GlobalProfileEmailField.validity.typeMismatch && 
+                        !GlobalProfileEmailField.validity.valueMissing;
+    //Is display field valid?
+    let displayNameValid = !GlobalProfileDisplayNameField.validity.tooShort &&
+                            !GlobalProfileDisplayNameField.validity.valueMissing;
+    //Is security question field valid?
+    let securityQuestionValid = !GlobalProfileSecurityQuestionField.validity.tooShort &&
+                                !GlobalProfileSecurityQuestionField.validity.valueMissing;
+    //Is security answer field valid?
+    let securityAnswerValid = !GlobalProfileSecurityAnswerField.validity.tooShort &&
+                                !GlobalProfileSecurityAnswerField.validity.valueMissing;
+    if (emailValid && displayNameValid && 
+        securityQuestionValid & securityAnswerValid) { 
+        //All is well -- Call updateProfile()
+        updateProfile();
+        return;
+    }
+    //If here, at least one field is invalid: Display the errors
+    //and allow user to fix them.
+    GlobalProfileErrBox.classList.remove("hidden");
+    if (!emailValid || !securityQuestionValid || !securityAnswerValid) {
+        //expand account panel
+        accountSettingsBtn.classList.remove("collapsed");
+        accountSettingsPanel.classList.add("show");
+    } else {
+        //collapse account panel
+        accountSettingsBtn.classList.add("collapsed");
+        accountSettingsPanel.classList.remove("show");
+    }
+    if (!displayNameValid) {
+        //expand Profile panel
+        GlobalProfileSettingsBtn.classList.remove("collapsed");
+        GlobalProfileSettingsPanel.classList.add("show");
+    } else {
+        //collapse account panel
+        GlobalProfileSettingsBtn.classList.add("collapsed");
+        GlobalProfileSettingsPanel.classList.remove("show");
+    }
+    //Speedgolf Settings Panel always collapsed
+    GlobalsgSettingsBtn.classList.add("collapsed");
+    GlobalsgSettingsPanel.classList.remove("show");
+    document.title = "Error: Update Account & Profile";
+    if (!securityAnswerValid) { //Display name field is invalid
+        GlobalProfileSecurityAnswerErr.classList.remove("hidden");
+        GlobalProfileSecurityAnswerErr.focus();
+        GlobalFirstFocusableUpdateProfileItem.set(GlobalProfileSecurityAnswerErr);
+    } else {
+        GlobalProfileSecurityAnswerErr.classList.add("hidden");
+    }
+    if (!securityQuestionValid) { //Display name field is invalid
+        GlobalProfileSecurityQuestionErr.classList.remove("hidden");
+        GlobalProfileSecurityQuestionErr.focus();
+        GlobalFrstFocusableUpdateProfileItem.set(GlobalProfileSecurityQuestionErr);
+    } else {
+        GlobalProfileSecurityQuestionErr.classList.add("hidden");
+    } 
+    if (!displayNameValid) { //Display name field is invalid
+        GlobalProfileDisplayNameErr.classList.remove("hidden");
+        GlobalProfileDisplayNameErr.focus();
+        GlobalFirstFocusableUpdateProfileItem.set(GlobalProfileDisplayName);
+    } else {
+        GlobalProfileDisplayNameErr.classList.add("hidden");
+    } 
+    if (!emailValid) { //Email field is invalid
+        GlobalProfileEmailErr.classList.remove("hidden");
+        GlobalProfileEmailErr.focus();
+        GlobalFirstFocusableUpdateProfileItem.set(GlobalProfileEmailErr);
+    } else {
+        GlobalProfileEmailErr.classList.add("hidden");
+    }
+ });
+
+ cancelUpdateProfileBtn.addEventListener("click", function(e) {
+    //Reset form in case it is visited again
+    resetUpdateProfileForm();
+    //Transition back to previous mode page
+    transitionFromDialog(GlobalProfileSettingsDialog);
+ });
