@@ -322,6 +322,79 @@
                   type="button">Cancel</button>
         </div>
       </div> 
+    <h1 id="accountProfileHeader" class="mode-page-header">Account & Profile</h1>
+    <p id="profileErrorBox" class="alert alert-danger centered hidden">
+      <a id="profileEmailError" href="#profileEmail" class="alert-link">Enter a valid email address<br/></a>
+      <a id="profileDisplayNameError" href="#profileDisplayName" class="alert-link">Enter a valid display name<br/></a>
+      <a id="profileSecurityQuestionError" href="#profileSecurityQuestion" class="alert-link">Enter a valid security question<br/></a>
+      <a id="profileSecurityAnswerError" href="#profileSecurityAnswer" class="alert-link">Enter a valid security question answer</a>
+    </p>
+    <form id="editProfileForm" class="centered" novalidate>
+      <div id="profileFormAccordion" class="accordion">
+        <div class="accordion-item">
+          <fieldset>
+            <h2 class="accordion-header" id="accountHeader">
+              <button id="accountSettingsBtn" class="accordion-button" type="button"
+                data-bs-toggle="collapse" data-bs-target="#accountSettingsPanel" 
+                aria-expanded="true" 
+                aria-controls="accountSettingsPanel">
+                <legend>Account</legend>
+              </button>
+            </h2>
+            <div id="accountSettingsPanel" 
+                class="accordion-collapse collapse show" 
+                aria-labelledby="accountHeader" 
+                data-bs-parent="#profileFormAccordion">
+              <div class="accordion-body">
+              <div class="mb-3">
+                <label for="profileEmail" class="form-label">Email:
+                    <input id="profileEmail" type="email" class="form-control centered"
+                    aria-describedby="profileEmailDescr"
+                    required>
+                </label>
+                <div id="profileEmailDescr" class="form-text">
+                  Enter a valid email address (e.g., 'name@domain.com').
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="profilePassword" class="form-label">Password:
+                    <input id="profilePassword" type="password" class="form-control centered"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                    aria-describedby="profilePasswordDescr"
+                    readonly>
+                </label>
+                <div id="profilePasswordDescr" class="form-text">
+                  Use the "Reset Password" option on the Log In page to reset your password.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="profileSecurityQuestion" class="form-label">Security Question:
+                    <input id="profileSecurityQuestion" type="text" class="form-control centered"
+                    minlength="5"
+                    aria-describedby="profileSecurityQuestionDescr"
+                    required>
+                </label>
+                <div id="profileSecurityQuestionDescr" class="form-text">
+                  Your security question must be at least 5 characters and should have a memorable answer. You will be asked
+                  this question if you ever need to reset your password.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="profileSecurityAnswer" class="form-label">Answer to Security Question:
+                    <input id="profileSecurityAnswer" type="text" class="form-control centered"
+                    minlength="5"
+                    aria-describedby="profileSecurityAnswerDescr"
+                    required>
+                </label>
+                <div id="profileSecurityAnswerDescr" class="form-text">
+                  Your security answer must be at least 5 characters and should be something you easily associate
+                  your security question. You will have to provide this answer if you ever need to reset your password.
+                </div>
+              </div>
+            </div>
+            </div>
+          </fieldset>
+        </div>
     </main>
     <script src="scripts/main.js"></script>
     <script src="scripts/window.js"></script>
