@@ -30,15 +30,20 @@
         alt="SpeedScore logo">
         <h1 id="appName" class="navbar-title">SpeedScore</h1> 
         <div class="navbar-right-items">
-            <button  id="searchBtn" type="button" class="navbar-btn" title="Search" 
+          <input id="searchBox" class="form-control hidden"
+                 aria-label="Search Rounds" size="30"
+                 type="search" value=""
+                 onkeyup="searchRoundsTable(this.value)"
+                 onsearch="searchRoundsTable(this.value)">
+            <button  id="searchBtn" type="button" class="navbar-btn hidden" title="Search"
             aria-label="Search">
             <span class="navbar-btn-icon fas fa-search"></span>
             </button>
-            <button id="profileBtn" type="button" class="navbar-btn" title="Edit Profile"
+            <button id="profileBtn" type="button" class="navbar-btn hidden" title="Edit Profile"
             aria-label="Account Settings">
-            <img class="navbar-profile-pic" 
+            <img class="navbar-profile-pic"
                 src="images/ChrisProfilePic.jpg" alt="User's profile picture">
-            </button>  
+            </button>
         </div>
     </header>
       <!--THE SIDE MENU -->
@@ -97,9 +102,48 @@
       <div id="roundsModeTab" class="mode-page hidden" role="tabpanel"
            aria-label="Rounds Tab" tabindex="0">
         <h1 class="mode-page-header">Rounds</h1>
-        <p class="mode-page-content">This page is under construction.</p>
-        <img class="mode-page-icon" src="images/sslogo2.png" alt="SpeedScore logo">
-        <button id="roundsModeActionBtn"  type="button" 
+        <div id="roundUpdated" class="toast-container hidden" role="alert" aria-atomic="true" aria-live="assertive">
+          <div id="roundUpdatedMsg" class="toast-text">
+            New round was logged
+          </div>
+          <button id="roundUpdatedClose" type="button" class="btn-close toast-close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <table id="roundsTable" class="table table-hover">
+          <caption id="roundsTableCaption" aria-live="polite">Rounds Table</caption>
+          <thead class="table-light">
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                aria-label="Sort ascending by date">
+                <span class="fas fa-sort sort-icon"></span>
+              </button>Date</th>
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                        aria-label="Sort ascending by course">
+                  <span class="fas fa-sort sort-icon"></span>
+                </button>Course</th>
+            <th scope="col" role="columnheader"
+                class="sortable-header cell-align-middle"
+                aria-sort="none">
+              <button class="btn bg-transparent table-sort-btn"
+                        aria-label="Sort ascending by score">
+                  <span class="fas fa-sort sort-icon"></span>
+                </button>Score</th>
+            <th scope="col" class="cell-align-middle">View/Edit...</th>
+            <th scope="col" class="cell-align-middle">Delete</th>
+          </thead>
+          <tbody>
+            <tr>
+            <td colspan="5" scope="rowgroup"><i>No rounds added yet</i></td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="roundsModeActionBtn"  type="button"
                 class="float-btn">
           <span class="fas fa-calendar-plus fa-fw" aria-hidden="true"></span>New Round
         </button>
