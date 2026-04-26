@@ -5,25 +5,31 @@
  ************************************************************************/
 
 /*************************************************************************
- * @function Document Keydown Event Handler 
- * @desc 
+ * @function Document Keydown Event Handler
+ * @desc
  * When the user presses a key in the app, we interpret the
- * keypress based on which user interface element currently has focus. 
+ * keypress based on which user interface element currently has focus.
  *************************************************************************/
- document.addEventListener("keydown", function(e) { 
+ document.addEventListener("keydown", function(e) {
     if (document.activeElement.id === "menuBtn") {
         //User is pressing a key when menu button is focused
-        keyDownMenuBtnFocused(e.code); 
-    } else if (document.activeElement.getAttribute("role") 
+        keyDownMenuBtnFocused(e.code);
+    } else if (document.activeElement.getAttribute("role")
                === "menuitem") {
         //User is pressing a key when menu item is focused
         keyDownMenuItemFocused(e.code);
-    } else if (document.activeElement.getAttribute("role") 
+    } else if (document.activeElement.getAttribute("role")
                === "tab") {
         //User is pressing a key when mode tab is focused
-        keyDownModeTabFocused(e.code); 
+        keyDownModeTabFocused(e.code);
     } else if (document.activeElement.classList
         .contains("action-dialog")) {
             keyDownDialogFocused(e);
+    } else if (GlobalCreateAccountDialog.contains(document.activeElement)) {
+        keyDownCreateDialogFocused(e);
+    }  else if (GlobalProfileSettingsDialog.contains(document.activeElement)) {
+        keyDownUpdateDialogFocused(e);
+    } else if (GlobalRoundsModeDialog.contains(document.activeElement)) {
+        keyDownRoundDialogFocused(e);
     }
  });
