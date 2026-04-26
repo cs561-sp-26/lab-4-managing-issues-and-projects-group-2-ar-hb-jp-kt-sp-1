@@ -3,59 +3,83 @@
 # CS 561 Lab 4 README
 _You need to update this README file only once, when you have completed the lab._
 ## Team Members
-- Name 1 (GitHub ID 1)
+- Shivani Pushparajan (pushpars-shivani)
 - Name 2 (GitHub ID 2)
 - Name 3 (GitHub ID 3)
 - Name 4 (GitHub ID 4)
 - Name 5 (GitHub ID 5)
 
 ## Jira vs. GitHub Projects
+
 ### Pros of Jira
-- Pro 1
-- Pro 2
-- Pro 3
+- Advanced sprint planning with built-in velocity tracking and burndown charts
+- Highly customizable workflows, issue types, and fields for complex team needs
+- Powerful reporting dashboards that provide deep insights into team performance
+- Strong integrations with enterprise CI/CD tools like Jenkins and Bitbucket
+- Dedicated time tracking and capacity planning features for large teams
 
 ### Cons of Jira
-- Con 1
-- Con 2
-- con 3
+- Expensive — pricing scales quickly as team size grows
+- Steep learning curve with a complex interface that can overwhelm new users
+- Requires a separate account and tool outside GitHub, causing context switching
+- Setup and configuration is time-consuming for smaller or shorter-lived projects
+- Can be overkill for small teams where simpler tools would suffice
 
 ### Pros of GitHub Projects
-- Pro 1
-- Pro 2
-- Pro 3
+- Natively integrated with GitHub — issues, PRs, branches, and commits all in one place
+- Free for public repos and small private teams with no additional account needed
+- Simple Kanban board with drag-and-drop that is easy to set up and use immediately
+- Automatic linking between project cards, issues, and pull requests reduces manual work
+- Roadmap view allows teams to visualize timelines and schedule work across milestones
 
 ### Cons of GitHub Projects
-- Con 1
-- Con 2
-- Con 3
+- Limited reporting features — no built-in burndown charts or velocity metrics
+- Fewer workflow customization options compared to Jira's advanced issue pipelines
+- No native time tracking or story point estimation built into the board
+- Less suitable for large enterprise teams with complex cross-project dependencies
+- Advanced filtering and querying capabilities are less powerful than Jira's JQL
 
 ## Tool Chosen
-[Jira or GitHub Projects]
+GitHub Projects
 
 ## Rationale
-Write one paragraph rationale here.
+We chose GitHub Projects because our team's entire workflow — version control, issues, branches, and pull requests — already lives in GitHub. Using GitHub Projects eliminates context switching between separate tools and allows direct, automatic linking of project cards to issues and PRs as code progresses. The built-in Kanban board and roadmap view gave us everything we needed to track our sprint and map user stories to a timeline without any additional setup. Since this is a class project with a small, focused team, we did not need Jira's advanced enterprise reporting or time-tracking features; GitHub Projects provided a lightweight, seamlessly integrated solution that matched the scale and pace of our work.
 
 ## Jira or GitHub Project link
-[Project link](url)
+[Lab 4 Team 2 GitHub Project](https://github.com/orgs/cs561-sp-26/projects/6)
 
 ## Commits
 
-| Name | # Commits 
-| --------- | -----------
-| Name 1 | 12 
-| Name 2 | 8 
-| Name 3 | 5 
-| Name 4 | 3 
-| Name 5 | 2 
-| **Total** | **30** 
+| Name | # Commits |
+| --------- | ----------- |
+| Shivani Pushparajan | 10 |
+| Name 2 | 0 |
+| Name 3 | 0 |
+| Name 4 | 0 |
+| Name 5 | 0 |
+| **Total** | **10** |
 
 ## Issues
 
-| # | Title       | Feeature Branch | Assigned To | Story Points | Date Started | Date Completed
-|---|-------------|-----------------|-------------|---------------|-------------|---------------
-|[#23](url)|Create mode bar | `feature/mode_bar` | Chris | 3 | 4/15/25 | 4/17/25
-
+| # | Title | Feature Branch | Assigned To | Story Points | Date Started | Date Completed |
+|---|-------|----------------|-------------|--------------|--------------|----------------|
+| [#2](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/2) | Add Rounds Table UI to Rounds Tab Panel | `feature/issue-2-rounds-table-ui` | Shivani Pushparajan | 3 | 4/26/26 | 4/26/26 |
+| [#3](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/3) | Build Log Round Modal Form | `feature/issue-3-log-round-form` | Shivani Pushparajan | 3 | 4/26/26 | 4/26/26 |
+| [#4](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/4) | Create roundsMode.js with Core Rounds CRUD Logic | `feature/issue-4-rounds-mode-js` | Shivani Pushparajan | 5 | 4/26/26 | 4/26/26 |
+| [#5](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/5) | Auto-Calculate Speedgolf Score (SGS) on Form Input | `feature/issue-5-sgs-calculation` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#6](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/6) | Sort Rounds Table by Column | `feature/issue-6-sort-rounds-table` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#7](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/7) | Search and Filter Rounds Table | `feature/issue-7-search-filter-rounds` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#8](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/8) | Add Global Variables and Dialog Transition Helpers for Rounds in main.js | `feature/issue-8-rounds-globals-main-js` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#9](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/9) | Wire Rounds Dialog into modeActions.js | `feature/issue-9-wire-rounds-modeactions` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#10](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/10) | Add Keyboard Navigation for Rounds Dialog | `feature/issue-10-keyboard-nav-rounds-dialog` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#11](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/11) | Implement Delete Round with Confirmation | `feature/issue-11-delete-round-confirmation` | Shivani Pushparajan | 2 | 4/26/26 | 4/26/26 |
+| [#12](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/12) | Implement Log Round form state management functions | `feature/issue-12-form-state-mgmt` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#13](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/13) | Implement rounds table rendering helpers | `feature/issue-13-table-rendering` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#14](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/14) | Implement round persistence: logRound, updateRound, editRound | `feature/issue-14-round-persistence` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#15](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/15) | Add Log Round form field markup | `feature/issue-15-log-round-form-fields` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#16](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/16) | Add form validation and accessible error messages to Log Round form | `feature/issue-16-log-round-validation` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#17](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/17) | Add Bootstrap 5 rounds table with sortable headers | `feature/issue-17-rounds-table-sortable-headers` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
+| [#18](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/18) | Add rounds search box and toast notification element | `feature/issue-18-rounds-search-toast` | Shivani Pushparajan | 1 | 4/26/26 | 4/26/26 |
 
 ## Read.ai Planning Poker Meeting Report Link
-[Project link](url)
+[Planning Poker Transcript](planning-poker-transcript.docx) | [Planning Poker Meeting Report](https://teams.microsoft.com/l/meetingrecap?driveId=b%21P33BJbmUVUaSB1l9qEikUnXvNRbGnM5OhHbwiqFndyARoFnIzMcNSLFe9edrFKMJ&driveItemId=012G4JFL3TWQMWJWYJPVBJGV3MTYHODP2M&sitePath=https%3A%2F%2Foregonstateuniversity.sharepoint.com%2Fsites%2FCS561Spring2026-ProjectGroup2%2FShared+Documents%2FRecordings%2FMeeting+in+Project+Group+2-20260426_112553-Meeting+Recording.mp4%3Fweb%3D1&fileUrl=https%3A%2F%2Foregonstateuniversity.sharepoint.com%2Fsites%2FCS561Spring2026-ProjectGroup2%2FShared+Documents%2FRecordings%2FMeeting+in+Project+Group+2-20260426_112553-Meeting+Recording.mp4%3Fweb%3D1&threadId=19%3A8sAsy1YbVIXnzru_2FfUJDULu92R2XcSGSqRLhE1AhQ1%40thread.tacv2&organizerId=16034959-4984-4905-b5c0-635a1a745f39&tenantId=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113&callId=38cb98cd-c33f-4815-8226-6d9a486bc752&threadType=space&meetingType=MeetNow&organizerGroupId=ea37c8f5-b021-43da-8f70-772a65cdf733&channelType=Private&replyChainId=1777219315521&subType=RecapSharingLink_RecapCore)
