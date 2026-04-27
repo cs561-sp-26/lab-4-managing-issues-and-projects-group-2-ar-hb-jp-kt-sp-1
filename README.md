@@ -65,10 +65,9 @@ We chose GitHub Projects because our team's entire workflow — version control,
 | ------------------- | --------- |
 | Shivani Pushparajan | 10        |
 | Akash Ranade        | 6         |
-| Name 3              | 0         |
+| Jackson Pope        | 6         |
 | Name 4              | 0         |
-| Name 5              | 0         |
-| **Total**           | **16**    |
+| **Total**           | **22**    |
 
 ## Issues
 
@@ -92,8 +91,11 @@ We chose GitHub Projects because our team's entire workflow — version control,
 | [#17](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/17) | Add Bootstrap 5 rounds table with sortable headers                       | `feature/issue-17-rounds-table-sortable-headers` | Shivani Pushparajan | 1            | 4/26/26      | 4/26/26        |
 | [#18](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/18) | Add rounds search box and toast notification element                     | `feature/issue-18-rounds-search-toast`           | Shivani Pushparajan | 1            | 4/26/26      | 4/26/26        |
 | [#20](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/20) | Create Account Info page                                                 | `feature/issue-20-account-info-page`             | Akash Ranade        | 2            | 4/26/26      | 4/26/26        |
+| [#21](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/21) | Playright Test Suite                                                     | `feature/playright-test-suite`                   | Jackson Pope        |
+3
 | [#24](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/24) | Create Speedgolf Info page                                               | `feature/issue-24-speedgolf-info-page`           | Akash Ranade        | 2            | 4/26/26      | 4/26/26        |
-
+| [#38](https://github.com/cs561-sp-26/lab-4-managing-issues-and-projects-group-2-ar-hb-jp-kt-sp-1/issues/38) | User Name & Picture                                                      | `feature/user-name-picture`                      | Jackson Pope        |
+3
 ## Read.ai Planning Poker Meeting Report Link
 
 [Planning Poker Transcript](planning-poker-transcript.docx) | [Planning Poker Meeting Report](https://teams.microsoft.com/l/meetingrecap?driveId=b%21P33BJbmUVUaSB1l9qEikUnXvNRbGnM5OhHbwiqFndyARoFnIzMcNSLFe9edrFKMJ&driveItemId=012G4JFL3TWQMWJWYJPVBJGV3MTYHODP2M&sitePath=https%3A%2F%2Foregonstateuniversity.sharepoint.com%2Fsites%2FCS561Spring2026-ProjectGroup2%2FShared+Documents%2FRecordings%2FMeeting+in+Project+Group+2-20260426_112553-Meeting+Recording.mp4%3Fweb%3D1&fileUrl=https%3A%2F%2Foregonstateuniversity.sharepoint.com%2Fsites%2FCS561Spring2026-ProjectGroup2%2FShared+Documents%2FRecordings%2FMeeting+in+Project+Group+2-20260426_112553-Meeting+Recording.mp4%3Fweb%3D1&threadId=19%3A8sAsy1YbVIXnzru_2FfUJDULu92R2XcSGSqRLhE1AhQ1%40thread.tacv2&organizerId=16034959-4984-4905-b5c0-635a1a745f39&tenantId=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113&callId=38cb98cd-c33f-4815-8226-6d9a486bc752&threadType=space&meetingType=MeetNow&organizerGroupId=ea37c8f5-b021-43da-8f70-772a65cdf733&channelType=Private&replyChainId=1777219315521&subType=RecapSharingLink_RecapCore)
