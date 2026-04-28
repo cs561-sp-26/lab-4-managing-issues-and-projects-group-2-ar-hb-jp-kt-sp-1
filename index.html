@@ -332,7 +332,8 @@
            </button>
        </div>
        <p id="errorBox" class="alert alert-danger centered hidden">
-
+          <a id="emailError" href="#email" class="alert-link">Enter a valid email address<br/></a>
+          <a id="passwordError" href="#password" class="alert-link">Enter a valid password</a>
           <a id="authError" href="#email" class="alert-link">No user account exists with email and password entered. Create an account or re-enter email and/or password</a>
         </p>
 <form id="loginForm" class="centered" novalidate>
@@ -342,7 +343,9 @@
                   aria-describedby="loginIdDescr"
                   required>
               </label>
-
+              <div id=loginIdDescr class="form-text">
+                Enter a valid email address.
+              </div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password:<br/>
