@@ -91,7 +91,16 @@
  * @global GlobalPasswordError: The error message for the password field
  *************************************************************************/
  loginForm.addEventListener("submit",function(e) {
-
+    e.preventDefault(); //Prevent default submti behavior
+    //Is the email field valid?
+    let emailValid = !GlobalEmailField.validity.typeMismatch && 
+                     !GlobalEmailField.validity.valueMissing;
+    //Is the password field valid?
+    let passwordValid = !GlobalPasswordField.validity.patternMismatch && 
+                        !GlobalPasswordField.validity.valueMissing;
+    //Did the user specify valid account credentials?
+    let authenticated = emailValid && passwordValid && 
+                        validAccount(GlobalEmailField.value, GlobalPasswordField.value);
     if (authenticated) { //Log user in
        login(GlobalEmailField.value);
        return;
