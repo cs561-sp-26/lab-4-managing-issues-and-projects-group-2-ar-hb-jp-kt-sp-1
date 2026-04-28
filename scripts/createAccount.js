@@ -169,9 +169,26 @@ function createAccount() {
  *************************************************************************/
   createAccountForm.addEventListener("submit",function(e) {
     e.preventDefault(); //Prevent default submit behavior
-
-    createAccount();
-
+    //Is the email field valid?
+    let emailValid = !GlobalAcctEmailField.validity.typeMismatch && 
+                     !GlobalAcctEmailField.validity.valueMissing;
+    //Is the password field valid?
+    let passwordValid = !GlobalAcctPasswordField.validity.patternMismatch && 
+                        !GlobalAcctPasswordField.validity.valueMissing;
+    let repeatPasswordValid = (GlobalAcctPasswordField.value === 
+                               GlobalAcctPasswordRepeatField.value);
+    let displayNameValid = !GlobalAcctDisplayNameField.validity.tooShort &&
+                           !GlobalAcctDisplayNameField.validity.valueMissing;
+    let securityQuestionValid = !GlobalAcctSecurityQuestionField.validity.tooShort &&
+                                !GlobalAcctSecurityQuestionField.validity.valueMissing;
+    let securityAnswerValid = !GlobalAcctSecurityAnswerField.validity.tooShort &&
+                              !GlobalAcctSecurityAnswerField.validity.valueMissing;
+    if (emailValid && passwordValid && repeatPasswordValid &&
+        displayNameValid && securityQuestionValid & securityAnswerValid) { 
+        //All is well -- Call createAccount()
+       createAccount();
+       return;
+    }
     //If here, at least one field is invalid: Display the errors
     //and allow user to fix them.
     GlobalAcctErrBox.classList.remove("hidden");
