@@ -34,7 +34,7 @@
   }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .disabled {
@@ -78,7 +78,7 @@
     left: 0px; 
     width: 100%; /* 100% of width of screen */
     align-items: center;
-    z-index: 100; /* Force it to be on top */
+    z-index: 200; /* Force it to be on top */
 }
 
 /* navbar-right-item styles items within navbar that should be right-justified.
@@ -252,6 +252,18 @@
     cursor: pointer;
 }
 
+.mode-page-btn-cancel {
+    display: inline;
+    font-size: 36px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: var(--text-color);
+    background-color: var(--main-red-color);
+    cursor: pointer;
+}
+
 /*************************************************************************
 * CSS CLASSES FOR FLOATING ACTION BUTTON
 *************************************************************************/
@@ -316,3 +328,50 @@ cursor: pointer;
 .highlight-error {
     background-color: #ffdddd;
 } 
+
+/*************************************************************************
+* CSS CLASSES FOR DIALOGS
+*************************************************************************/
+
+.dialog-primary-btn {
+    width:35%; 
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    font-size: 24px;
+    color: var(--text-color);
+    background-color: var(--main-color);
+}
+
+.dialog-cancel-btn {
+    width:35%; 
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 24px;
+    color: var(--text-color);
+    background-color: var(--main-red-color);
+}
+
+/*************************************************************************
+* CSS CLASSES FOR TOAST NOTIFICATION
+*************************************************************************/
+
+.toast-container {
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    line-height: 40px;
+    display: flex;
+     
+}
+
+.toast-text {
+    font-size: larger;
+    width: 100%;
+    text-align: center;
+}
+
+.toast-close {
+   pointer-events: visible;
+   margin-left: auto;
+   vertical-align: middle;
+}

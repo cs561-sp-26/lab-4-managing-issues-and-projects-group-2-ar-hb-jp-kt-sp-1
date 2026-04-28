@@ -14,6 +14,10 @@
      <!-- Import FontAwesome icons -->
      <script src="https://kit.fontawesome.com/79d46ac19d.js" 
       crossorigin="anonymous"></script>
+     <!-- Import Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+     crossorigin="anonymous"/>
      <!-- Import local stylesheet -->
      <link rel="stylesheet" href="styles/style.css">
    </head>
@@ -21,7 +25,7 @@
     <!-- The TOP NAVIGATION BAR -->
     <header class="navbar"> 
         <a id="sLink" class="skip-link" tabindex="0">Skip to content</a>  
-        <button id="menuBtn" type="button" class="navbar-btn" title="Menu"
+        <button id="menuBtn" type="button" class="navbar-btn hidden" title="Menu"
             aria-controls="sideMenu" aria-label="Actions"
             aria-haspopup="true" aria-expanded="false">
             <span id="menuBtnIcon" class="navbar-btn-icon fas fa-bars"></span>
@@ -326,7 +330,9 @@
       <div id="loginPage" class="mode-page">
         <h1 class="mode-page-header">Log In</h1>
         <div id="accountCreated" class="toast-container hidden" role="alert" aria-atomic="true" aria-live="assertive">
-
+          <div class="toast-text">
+             New account created with email <span id="accountCreatedEmail"></span>
+          </div>
            <button id="accountCreatedClose" type="button" class="btn-close toast-close" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
@@ -368,11 +374,119 @@
           </button>
         </form>
         <ul class="nav justify-content-center">
-
+          <li class="nav-item">
+            <button id="createAccountBtn" class="nav-link btn btn-link">
+                Create Account
+            </button>
+          </li>
           <li class="nav-item">
             <button id="resetPasswordBtn" class="nav-link btn btn-link">Reset Password</button>
           </li>
         </ul>
+      </div>   
+      <div id="createAccountDialog" class="mode-page hidden"
+            role="dialog" aria-modal="true" 
+            aria-labelledby="createAccountHeader">
+            <h1 id="createAccountHeader" class="mode-page-header">Create Account</h1>
+
+        <form id="createAccountForm" class="centered" novalidate>
+          <div class="mb-3">
+            <label for="acctEmail" class="form-label">Email:<br/>
+                <input id="acctEmail" type="email" class="form-control centered"
+                aria-describedby="acctEmailDescr"
+                required>
+            </label>
+            <div id="acctEmailDescr" class="form-text">
+              Enter a valid email address (e.g., 'name@domain.com').
+            </div>
+          </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:<br/>
+                <input id="acctPassword" type="password" class="form-control centered"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                aria-describedby="acctPasswordDescr"
+                required>
+            </label>
+            <div id="acctPasswordDescr" class="form-text">
+              Passwords must be at least 8 characters long with at least one number, 
+              one lower case letter, and one upper case letter.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="acctPasswordRepeat" class="form-label">Repeat Password:<br/>
+                <input id="acctPasswordRepeat" type="password" class="form-control centered"
+                aria-describedby="acctPasswordRepeatDescr"
+                required>
+            </label>
+            <div id="acctPasswordRepeatDescr" class="form-text">
+              Re-enter password, making sure it exactly matches.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="acctDisplayName" class="form-label">Display Name:<br/>
+                <input id="acctDisplayName" type="text" class="form-control centered"
+                minlength="5"
+                aria-describedby="displayNameDescr"
+                required>
+            </label>
+            <div id="acctDisplayNameDescr" class="form-text">
+              Your display name is your identity within SpeedScore. It must be at least 5 characters.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="acctProfilePic" class="form-label">Profile Picture (optional):<br/>
+              <img id="acctProfilePicImage" src="images/DefaultProfilePic.jpg" 
+                    class="fm-profile-pic" height="46" width="auto"/>
+                <input id="acctProfilePic" type="file" class="form-control centered"
+                accept=".png, .gif, .jpg"
+                aria-describedby="acctProfilePicDescr"
+                required>
+            </label>
+            <div id="acctProfilePicDescr" class="form-text">
+              Optionally upload a profile picture as a .png, .gif, or .jpg file. A rectangular head shot works best.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="acctSecurityQuestion" class="form-label">Security Question:<br/>
+                <input id="acctSecurityQuestion" type="text" class="form-control centered"
+                minlength="5"
+                aria-describedby="acctSecurityQuestionDescr"
+                required>
+            </label>
+            <div id="acctSecurityQuestionDescr" class="form-text">
+              Your security question must be at least 5 characters and should have a memorable answer. You will be asked
+              this question if you ever need to reset your password.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="acctSecurityAnswer" class="form-label">Answer to Security Question:<br/>
+                <input id="acctSecurityAnswer" type="text" class="form-control centered"
+                minlength="5"
+                aria-describedby="acctSecurityAnswerDescr"
+                required>
+            </label>
+            <div id="acctSecurityAnswerDescr" class="form-text">
+              Your security answer must be at least 5 characters and should be something you easily associate
+              your security question. You will have to provide this answer if you ever need to reset your password.
+            </div>
+          </div>
+          <div class="mode-page-btn-container">
+            <button type="submit" id="submitCreateAccountBtn" 
+                class="btn btn-primary dialog-primary-btn" 
+                aria-live="polite" aria-loading="false">
+              <span id="createAccountBtnIcon" 
+                class="fas fa-user-plus" 
+                aria-hidden="true"></span>
+                &nbsp;Create Account
+            </button>
+            <button type="button" id="cancelCreateAccountBtn" 
+                class="btn btn-secondary dialog-cancel-btn">
+                <span class="fas fa-window-close" 
+                aria-hidden="true"></span>
+              &nbsp;Cancel
+            </button>
+          </div>
+        </form>
       </div>      
       <div id="profileSettingsDialog" class="mode-page hidden"
       role="dialog" aria-modal="true" 
@@ -422,18 +536,7 @@
             </fieldset>
         </div>
       </div>
-      <div class="mode-page-btn-container">
-            <button type="submit" id="submitUpdateProfileBtn" class="btn btn-primary dialog-primary-btn" aria-live="polite"
-              aria-busy="false">
-              <span id="editProfileBtnIcon" class="fas fa-user-edit" aria-hidden="true"></span>
-              &nbsp;Update
-            </button>
-            <button type="button" id="cancelUpdateProfileBtn" class="btn btn-secondary dialog-cancel-btn">
-              <span class="fas fa-window-close" aria-hidden="true"></span>
-              &nbsp;Cancel
-            </button>
-      </div>
-    </form>
+
         </div>
         <div class="accordion-item">
           <fieldset>
@@ -603,13 +706,16 @@
     </form>
   </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
-    <script src="scripts/window.js"></script>
     <script src="scripts/sideMenu.js"></script>
     <script src="scripts/modeTabs.js"></script>
-    <script src="scripts/modeActions.js"></script>
     <script src="scripts/document.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/editProfile.js"></script>
+    <script src="scripts/roundsMode.js"></script>
+    <script src="scripts/modeActions.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    </body>
   </body>
 </html>
